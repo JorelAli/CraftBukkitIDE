@@ -2,6 +2,7 @@ package cbde.main;
 
 
 import cbde.windows.LoadingWindow;
+import cbde.windows.MainWindow;
 
 public class Main {
 
@@ -13,6 +14,9 @@ public class Main {
 		
 		LoadingWindow load = new LoadingWindow();
 		load.setVisible(true);
+		MainWindow Main = new MainWindow();
+		load.setVisible(false);
+		Main.setVisible(true);
 		
 		
 	}
