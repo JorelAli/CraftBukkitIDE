@@ -18,6 +18,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainWindow extends JFrame {
 
@@ -60,6 +62,12 @@ public class MainWindow extends JFrame {
 		mnCbide.add(mnNewMenu);
 		
 		JMenuItem mntmProject = new JMenuItem("Project");
+		mntmProject.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				newProjectDialog dia = new newProjectDialog();
+				dia.setVisible(true);
+			}
+		});
 		mnNewMenu.add(mntmProject);
 		
 		JMenuItem mntmFile = new JMenuItem("File");
