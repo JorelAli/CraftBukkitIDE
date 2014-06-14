@@ -107,6 +107,12 @@ public class MainWindow extends JFrame {
 		mntmClose.setIcon(new ImageIcon(MainWindow.class.getResource("/javax/swing/plaf/metal/icons/ocean/paletteClose.gif")));
 		mnCbide.add(mntmClose);
 		
+		JMenu mnSettings = new JMenu("Settings");
+		menuBar.add(mnSettings);
+		
+		JMenu mnSettingsDialog = new JMenu("Settings Dialog");
+		mnSettings.add(mnSettingsDialog);
+		
 		JTree tree = new JTree();
 		
 		JPanel panel = new JPanel();

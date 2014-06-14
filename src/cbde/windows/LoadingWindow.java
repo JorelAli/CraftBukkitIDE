@@ -15,6 +15,8 @@ import java.awt.Canvas;
 import java.awt.Label;
 import javax.swing.ImageIcon;
 import javax.swing.JProgressBar;
+import javax.swing.SwingConstants;
+import javax.swing.border.EtchedBorder;
 
 public class LoadingWindow extends JFrame {
 
@@ -46,24 +48,36 @@ public class LoadingWindow extends JFrame {
 		setUndecorated(true);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.GRAY);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(192, 192, 192), Color.DARK_GRAY));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblCraftbukkit = new JLabel("CraftBukkit");
+		JLabel lblCraftbukkit = new JLabel("");
+		lblCraftbukkit.setIcon(new ImageIcon("C:\\Users\\Leo\\BukkitPlugin-Workbench\\CBDE\\craftbukkit_icon.png"));
 		lblCraftbukkit.setForeground(Color.BLUE);
 		lblCraftbukkit.setFont(new Font("Prestige Elite Std", Font.BOLD, 32));
-		lblCraftbukkit.setBounds(119, 50, 226, 33);
+		lblCraftbukkit.setBounds(91, 115, 48, 64);
 		contentPane.add(lblCraftbukkit);
 		
-		JLabel lblIntegratedDevelopmentEnvironment = new JLabel("Integrated Development Environment for Plugins");
-		lblIntegratedDevelopmentEnvironment.setFont(new Font("Swiss921 BT", Font.PLAIN, 21));
-		lblIntegratedDevelopmentEnvironment.setBounds(20, 115, 430, 33);
-		contentPane.add(lblIntegratedDevelopmentEnvironment);
-		
 		JProgressBar progressBar = new JProgressBar();
+		progressBar.setValue(5);
 		progressBar.setIndeterminate(true);
-		progressBar.setBounds(0, 264, 450, 14);
+		progressBar.setBounds(197, 192, 226, 9);
 		contentPane.add(progressBar);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\Leo\\BukkitPlugin-Workbench\\CBDE\\gear_icon.png"));
+		label.setBounds(30, 62, 128, 128);
+		contentPane.add(label);
+		
+		JLabel lblCraftbukkit_1 = new JLabel("CraftBukkit\r");
+		lblCraftbukkit_1.setFont(new Font("Dotum", Font.PLAIN, 25));
+		lblCraftbukkit_1.setBounds(197, 110, 136, 24);
+		contentPane.add(lblCraftbukkit_1);
+		
+		JLabel lblPluginmaker = new JLabel("Plugin-Maker");
+		lblPluginmaker.setFont(new Font("Source Sans Pro Light", Font.PLAIN, 20));
+		lblPluginmaker.setBounds(197, 145, 152, 24);
+		contentPane.add(lblPluginmaker);
 	}
 }
