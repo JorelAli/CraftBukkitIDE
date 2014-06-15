@@ -20,6 +20,16 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JEditorPane;
+import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import javax.swing.JLabel;
+import javax.swing.border.EtchedBorder;
+import javax.swing.JProgressBar;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 public class MainWindow extends JFrame {
 
@@ -114,6 +124,14 @@ public class MainWindow extends JFrame {
 		mnSettings.add(mnSettingsDialog);
 		
 		JTree tree = new JTree();
+		tree.setModel(new DefaultTreeModel(
+			new DefaultMutableTreeNode("Help") {
+				{
+					add(new DefaultMutableTreeNode("Website"));
+					add(new DefaultMutableTreeNode("Bukkit Forums"));
+				}
+			}
+		));
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.DARK_GRAY);
@@ -154,19 +172,77 @@ public class MainWindow extends JFrame {
 					.addContainerGap())
 		);
 		
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setFont(new Font("Simplified Arabic Fixed", Font.PLAIN, 15));
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(192, 192, 192), Color.DARK_GRAY));
+		panel_2.setBackground(Color.GRAY);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\Leo\\BukkitPlugin-Workbench\\CBDE\\craftbukkit_icon.png"));
+		label.setForeground(Color.BLUE);
+		label.setFont(new Font("Prestige Elite Std", Font.BOLD, 32));
+		label.setBounds(82, 86, 48, 64);
+		panel_2.add(label);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon("C:\\Users\\Leo\\BukkitPlugin-Workbench\\CBDE\\gear_icon.png"));
+		label_1.setBounds(11, 22, 128, 128);
+		panel_2.add(label_1);
+		
+		JLabel label_2 = new JLabel("CraftBukkit\r");
+		label_2.setFont(new Font("Dotum", Font.PLAIN, 25));
+		label_2.setBounds(169, 61, 136, 24);
+		panel_2.add(label_2);
+		
+		JLabel label_3 = new JLabel("Plugin-Maker");
+		label_3.setFont(new Font("Source Sans Pro Light", Font.PLAIN, 20));
+		label_3.setBounds(179, 86, 152, 24);
+		panel_2.add(label_3);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		
+		JLabel lblV = new JLabel("v 0.0.1");
+		lblV.setForeground(Color.LIGHT_GRAY);
+		lblV.setBounds(11, 6, 55, 16);
+		panel_2.add(lblV);
+		
+		JLabel lblBeta = new JLabel("Beta");
+		lblBeta.setForeground(Color.YELLOW);
+		lblBeta.setFont(new Font("Simplified Arabic Fixed", Font.PLAIN, 15));
+		lblBeta.setBounds(255, 111, 55, 16);
+		panel_2.add(lblBeta);
+		panel.setLayout(gl_panel);
+		
+		JScrollPane scrollPane = new JScrollPane();
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addComponent(textPane_1, GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addComponent(textPane_1, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
 		);
+		
+		JEditorPane editorPane = new JEditorPane();
+		scrollPane.setViewportView(editorPane);
 		panel_1.setLayout(gl_panel_1);
 		getContentPane().setLayout(groupLayout);
+		jsyntaxpane.DefaultSyntaxKit.initKit();
+		editorPane.setContentType("text/java");
 	}
 	
 	
